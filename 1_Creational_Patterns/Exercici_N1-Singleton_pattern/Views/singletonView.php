@@ -3,21 +3,6 @@
     require '../Controllers/singletonController.php';
     // l'arxiu routes només si utilitzessim API remota, aquí estem en local per tan no cal:
     require '../Routes/singletonRoute.php'; 
-
-    // si l'usuari ens ha demanat quelcom...
-    if ( !empty($_POST['inpRoars']) && ($_POST['inpRoars'] > 0)) {
-
-        // ENTRADA DE DADES - en view
-        $intRoars = intval($_POST['inpRoars']);
-
-        // LLOGICA DE DADES - en controller
-        $resultat = makeRoars($intRoars);
-        sleep(3);   // 3 segons, per observar l'hora, i que retorna el primer instanciat
-
-        // SORTIDA DE DADES - en view
-        // ... ho traslladem més avall, a dins el DIV de Output
-        // output($resultat);
-    }
 ?>
 
 <!-- RENDERITZAT del Html  -->    
@@ -53,7 +38,25 @@
         </form>
     <h3>Resolució:</h3>
         <div id="outputs">
-            <?php output($resultat); ?>
+            <?php
+                // si l'usuari ens ha demanat quelcom...
+                if ( !empty($_POST['inpRoars']) && ($_POST['inpRoars'] > 0)) {
+
+                    // ENTRADA DE DADES - en view
+                    $intRoars = intval($_POST['inpRoars']);
+
+                    // LLOGICA DE DADES - en controller
+                    $resultat = makeRoars($intRoars);
+                    if ($resultat=='0') {$resultat = 'No ha rugit gens.';}
+                    sleep(3);   // 3 segons, per observar l'hora, i que retorna el primer instanciat
+
+                    // SORTIDA DE DADES - en view
+                    // ... ho traslladem més avall, a dins el DIV de Output ... no funciona, al final ho fa dins el makeRoars
+                    // output($resultat);
+                }
+            ?>            
+
+            <!-- <?php output($resultat); ?> -->
         </div>
     <hr>
     <h3>Tornar:</h3>

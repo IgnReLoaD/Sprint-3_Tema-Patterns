@@ -12,19 +12,19 @@ class Tigger
     // 2. ZONA CONSTRUCTOR -----------------
     
     //assegurem que no es pugui generar amb NEW
-    protected function __construct($num)
+    protected function __construct()
     {
-        $this->_counter = $this->_counter + $num;
+        // $this->_counter = $this->_counter + $num;
         $this->_momento = date("h:i:sa");    // getDate();
     } 
 
     // responsable de crear instància de classe Tigger només una vegada
     // i tornar aquesta única instància cada vegada que es crida
-    public static function getInstance($num)
+    public static function getInstance()
     {
         if (!isset(self::$instanciaUnica)) {
-            echo "Building character..." . PHP_EOL;
-            self::$_instanciaUnica = new static($num);
+            echo "Building character... <br>" . PHP_EOL;
+            self::$_instanciaUnica = new static();
         }
         return self::$_instanciaUnica;
     }
@@ -49,19 +49,10 @@ class Tigger
     // funció que genera l'acció demanada (un "rugit")
     public function roar()
     {
+        $this->setCounter($this->getCounter()+1);
         return "Grrr!" . PHP_EOL;
     }
 
-    // Imprimeix en pantalla múltiples vegades el rugit de Tigger
-    // ... ho traslladem al Controller
-    
-    // public function showRoars($roars){
-    //     for ($i=1;$i<=$roars;$i++){
-    //         $this->roar();
-    //         $this->setCounter($this->getCounter+1);
-    //     }
-    //     return $this->getCounter;
-    // }
 }
 
 ?>
