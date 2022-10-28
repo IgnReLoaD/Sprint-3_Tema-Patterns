@@ -1,13 +1,11 @@
 <?php
     // l'arxiu controller té els mètodes-funcions específiques:
-    // require './1_Creational_Patterns/Exercici_N1-Singleton_pattern/Controllers/singletonController.php';
     require '../Controllers/singletonController.php';
     // l'arxiu routes només si utilitzessim API remota, aquí estem en local per tan no cal:
-    // require './1_Creational_Patterns/Exercici_N1-Singleton_pattern/Routes/singletonRoute.php';
     require '../Routes/singletonRoute.php'; 
 
     // si l'usuari ens ha demanat quelcom...
-    if ( !empty($_POST['inpRoars']) ) {
+    if ( !empty($_POST['inpRoars']) && ($_POST['inpRoars'] > 0)) {
 
         // ENTRADA DE DADES - en view
         $intRoars = intval($_POST['inpRoars']);
@@ -49,7 +47,7 @@
     <h3>Executar:</h3>
         <form action="singletonView.php" method="post">
             <label for="inpRoars">Entra número de rugits (min.1,max.9): </label>
-            <input type="number" id="inpRoars" name="inpRoars" placeholder="3" min="1" max="9">            
+            <input type="number" id="inpRoars" name="inpRoars" placeholder="0" min="1" max="9">            
             &nbsp; &nbsp;<input type="submit" value=" anem a rugir! ">            
             <hr>     
         </form>
