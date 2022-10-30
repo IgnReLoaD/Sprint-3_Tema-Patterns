@@ -1,14 +1,17 @@
 <?php
-    // l'arxiu model té la Classe amb Mètodes i Model de dades definit
+    // l'arxiu model té les Classes amb Mètodes i Model de dades definit
     require '../Models/strategyModel.php';
 
-    function createDiscount($objCAR){
+    // els mètodes de les classes es diuen igual, però es criden segons l'objecte
+    function createDiscount($objCAR,$strBrand){
         $objCAR->addSeasonDiscount();
         $objCAR->addStockDiscount();
-        return true;
+        $strBrand = strtoupper($strBrand);
+        return "<p>Get <b>{$objCAR->discount}%</b> off the price of your new {$strBrand} car.</p>";
     }
 
-    function carGenerator($strBrand){
+    // mètode per crear l'objecte CAR segons la Marca
+    function carCouponGenerator($strBrand){
         switch ($strBrand){
             case 'bmw' : $objCAR = new BmwCupounGenerator();      break;
             case 'mb'  : $objCAR = new MercedesCupounGenerator(); break;
@@ -17,11 +20,14 @@
         return $objCAR;
     }
 
+    // funció que executa tot (tipus main)
     function salesRate($strBrand){
         $objCAR = carCouponGenerator($strBrand);
-        createDiscount($objCAR);
+        $msg = createDiscount($objCAR,$strBrand);  
+        return $msg;      
     }
 
-    function output($objCAR,$strBrand){
-        echo "<h4>Get <b>{$objCAR->_discount}%</b> off the price of your new {$strBrand} car.</h4>";
+    // funció per mostrar per pantalla
+    function output($msg){
+        echo $msg;
     }

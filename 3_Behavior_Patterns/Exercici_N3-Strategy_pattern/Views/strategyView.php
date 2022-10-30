@@ -33,7 +33,7 @@
     <h3>Executar:</h3>
         <form action="strategyView.php" method="post">
             <label for="cmbMarca">Selecciona la marca: </label>
-            <select id="cmbMarca">
+            <select id="cmbMarca" name="cmbMarca">
                 <option value="bmw">BMW - Bayerische Motoren Werke, AG.</option>
                 <option value="mb"> MB - Daimler Mercedes-Benz Group, AG.</option>                
                 <option value="alfa"> ALFA - Alfa Romeo Milano Automobili, SPA.</option>  
@@ -45,16 +45,16 @@
         <div id="outputs">
             <?php
                 // si l'usuari ens ha demanat quelcom...
-                if ( !empty($_POST['cmbMarca']) ) {
+                if ( !empty($_POST['cmbMarca']) ) {                                        
 
                     // ENTRADA DE DADES - en view
                     $strMarca = strval($_POST['cmbMarca']);                    
 
                     // LLOGICA DE DADES - en controller
-                    salesRate($strMarca);                    
+                    $strResult = salesRate($strMarca);                    
                     
                     // SORTIDA DE DADES - en view                    
-                    output($strMarca);
+                    output($strResult);
                 }
             ?>            
         </div>

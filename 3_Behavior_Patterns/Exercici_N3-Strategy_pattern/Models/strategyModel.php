@@ -68,7 +68,7 @@
             if ($this->highSeason){
                 return $this->discount;
             }else{
-                return $this->discount +=6;
+                return $this->discount +=7;
             }
         }
 
@@ -76,7 +76,7 @@
             if (($this->highStock)){
                 return $this->discount;
             }else{
-                return $this->discount +=8;
+                return $this->discount +=9;
             }
         }
     }
