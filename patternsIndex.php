@@ -26,7 +26,7 @@
     <p>Ejemplo de uno de los Structural Pattern -> <b>Adapter:</b> ejercicio 
         <a href="./2_Structural_Patterns/Exercici_N2-Adapter_pattern/Views/adapterView.php">Poultry</a></p>
     <p>Ejemplo de uno de los Behaviors Patterns -> <b>Strategy:</b> ejercicio 
-        <a href="./3_Behavior_Patterns/Exercici_N1-Strategy_pattern/Views/strategyView.php">Cupoun</a></p>
+        <a href="./3_Behavior_Patterns/Exercici_N3-Strategy_pattern/Views/strategyView.php">Cupoun</a></p>
     <br>
 
     <h2>DEFINITIONS:</h2>
