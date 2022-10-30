@@ -39,7 +39,7 @@
 
         // capturem la trucada a "quack" (mateix nom) perquè faci un globe
         public function quack(){
-            $this->turkeyAsDuck->globbe();
+            $this->turkeyAsDuck->gobble();
         }
 
         // capturem la trucada a "fly" (mateix nom) per adaptar llargada del vol

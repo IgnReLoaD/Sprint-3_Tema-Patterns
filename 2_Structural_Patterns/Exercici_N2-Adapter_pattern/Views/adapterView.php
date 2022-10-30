@@ -42,17 +42,13 @@
         <div id="outputs">
             <?php
                 // si l'usuari ens ha demanat quelcom...
-                if ( !empty($_POST['inpFlights']) && ($_POST['inpFlights'] > 0)) {
+                if ( !empty($_POST['inpFlights']) ) {
 
                     // ENTRADA DE DADES - en view
                     $intFlights = intval($_POST['inpFlights']);
 
-                    // LLOGICA DE DADES - en controller
-                    $resultat = makeFlights($intFlights);
-                    if ($resultat=='0') {$resultat = 'No han volat gens.';}
-
-                    // SORTIDA DE DADES - en view
-                    output($resultat);
+                    // LLOGICA DE DADES + SORTIDA DE DADES - en controller
+                    exec_poultry($intFlights);                    
                 }
             ?>            
         </div>
